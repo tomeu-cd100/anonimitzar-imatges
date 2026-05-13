@@ -4,4 +4,8 @@ import { defineConfig } from 'vite'
 export default defineConfig({
   plugins: [react()],
   base: '/anonimitzar-imatges/',
+  build: {
+    outDir: 'docs',
+    emptyOutDir: true,
+  },
 })

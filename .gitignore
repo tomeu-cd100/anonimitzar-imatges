@@ -6,6 +6,7 @@ yarn.lock
 # Build output
 dist/
 build/
+# docs/ NO s'ignora — és el que publica GitHub Pages
 
 # IDE
 .vscode/
