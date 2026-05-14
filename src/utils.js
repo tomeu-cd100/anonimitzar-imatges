@@ -1,13 +1,17 @@
 export const pixelateImage = (canvas, boxes, pixelSize) => {
   const ctx = canvas.getContext('2d')
-  
+  const W = canvas.width
+  const H = canvas.height
+
   boxes.forEach(box => {
-    const { x, y, width, height } = box
-    
-    // Validar que el requadre té mida
+    // Arrodonir i clampar dins dels límits del canvas
+    const x = Math.max(0, Math.round(box.x))
+    const y = Math.max(0, Math.round(box.y))
+    const width  = Math.min(W - x, Math.round(box.width))
+    const height = Math.min(H - y, Math.round(box.height))
+
     if (width <= 0 || height <= 0) return
-    
-    // Aplicar pixelació
+
     const imageData = ctx.getImageData(x, y, width, height)
     const data = imageData.data
     

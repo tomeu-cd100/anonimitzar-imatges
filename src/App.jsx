@@ -308,7 +308,10 @@ export default function App() {
           ref={fileInputRef}
           type="file"
           accept="image/*"
-          onChange={(e) => e.target.files?.[0] && handleImageUpload(e.target.files[0])}
+          onChange={(e) => {
+            if (e.target.files?.[0]) handleImageUpload(e.target.files[0])
+            e.target.value = ''
+          }}
           className="hidden"
         />
       </div>
